@@ -45,7 +45,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1088, 420.0]
+    coordinate: [1384, 20.0]
     rotation: 0
     state: true
 - name: variable_qtgui_label_0
@@ -61,7 +61,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1048, 252.0]
+    coordinate: [1384, 108.0]
     rotation: 0
     state: true
 - name: blocks_file_source_0
@@ -71,7 +71,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: /root/out_110.cfile
+    file: /root/penetration-testing/data/dechannelized/out_110.cfile
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -93,7 +93,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: /root/out_118.cfile
+    file: /root/penetration-testing/data/dechannelized/out_118.cfile
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -125,29 +125,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1416, 244.0]
+    coordinate: [1384, 300.0]
     rotation: 0
-    state: disabled
-- name: blocks_socket_pdu_0_0
-  id: blocks_socket_pdu
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    host: 127.0.0.1
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    mtu: '10000'
-    port: ''
-    tcp_no_delay: 'False'
-    type: TCP_SERVER
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1368, 52.0]
-    rotation: 0
-    state: disabled
+    state: enabled
 - name: fc
   id: parameter
   parameters:
@@ -171,14 +151,14 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    filename: /root/bursts
+    filename: /root/penetration-testing/data/sms_110_118.bursts
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [720, 156.0]
+    coordinate: [864, 556.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: gsm_bursts_printer_0
   id: gsm_bursts_printer
   parameters:
@@ -189,12 +169,12 @@ blocks:
     prepend_fnr: 'True'
     prepend_frame_count: 'True'
     prepend_string: ''
-    print_payload_only: 'True'
+    print_payload_only: 'False'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1408, 444.0]
+    coordinate: [864, 444.0]
     rotation: 0
     state: enabled
 - name: gsm_clock_offset_control_0
@@ -227,7 +207,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1056, 344.0]
+    coordinate: [1072, 352.0]
     rotation: 0
     state: enabled
 - name: gsm_cx_channel_hopper_0
@@ -277,7 +257,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [248, 233]
+    coordinate: [256, 256.0]
     rotation: 0
     state: enabled
 - name: gsm_input_0_0
@@ -296,7 +276,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [248, 297]
+    coordinate: [264, 328.0]
     rotation: 0
     state: enabled
 - name: gsm_message_printer_0
@@ -313,7 +293,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1392, 356.0]
+    coordinate: [1384, 452.0]
     rotation: 0
     state: disabled
 - name: gsm_receiver_0
@@ -439,15 +419,14 @@ connections:
 - [gsm_clock_offset_control_0, ctrl, gsm_input_0, ctrl_in]
 - [gsm_clock_offset_control_0, ctrl, gsm_input_0_0, ctrl_in]
 - [gsm_control_channels_decoder_0_0_0_0_0_0, msgs, blocks_socket_pdu_0, pdus]
-- [gsm_control_channels_decoder_0_0_0_0_0_0, msgs, gsm_bursts_printer_0, bursts]
 - [gsm_control_channels_decoder_0_0_0_0_0_0, msgs, gsm_extract_cmc_0, msgs]
 - [gsm_control_channels_decoder_0_0_0_0_0_0, msgs, gsm_message_printer_0, msgs]
+- [gsm_cx_channel_hopper_0, bursts, gsm_burst_file_sink_0, in]
+- [gsm_cx_channel_hopper_0, bursts, gsm_bursts_printer_0, bursts]
 - [gsm_cx_channel_hopper_0, bursts, gsm_sdcch8_demapper_0, bursts]
 - [gsm_input_0, '0', gsm_receiver_0, '0']
 - [gsm_input_0_0, '0', gsm_receiver_0, '1']
-- [gsm_receiver_0, C0, gsm_burst_file_sink_0, in]
 - [gsm_receiver_0, C0, gsm_cx_channel_hopper_0, CX]
-- [gsm_receiver_0, CX, gsm_burst_file_sink_0, in]
 - [gsm_receiver_0, CX, gsm_cx_channel_hopper_0, CX]
 - [gsm_receiver_0, measurements, gsm_clock_offset_control_0, measurements]
 - [gsm_sdcch8_demapper_0, bursts, gsm_control_channels_decoder_0_0_0_0_0_0, bursts]
