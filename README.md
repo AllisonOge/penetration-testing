@@ -36,4 +36,20 @@ The results of the research are contained in `/data/` directory which contains s
 
 ## Publication
 
-Under review
+@article {
+author = {Bello, Nosa and Kanu, Ogechukwu},
+title = {Penetration Testing of GSM Network using Man-In-The-Middle Attack},
+journal = {JES. Journal of Engineering Sciences},
+volume = {52},
+number = {1},
+pages = {12-26},
+year  = {2024},
+publisher = {Assiut University, Faculty of Engineering},
+issn = {1687-0530}, 
+eissn = {2356-8550}, 
+doi = {10.21608/jesaun.2023.226718.1249},
+abstract = {Even though wireless communication technologies have advanced beyond the Global Systems for Mobile (GSM) Communications standard to mitigate its vulnerabilities, it is still a fallback technology when the coverage is limited and modern protocols aren’t available. There is a need for a comprehensive practical demonstration of the pools of vulnerabilities of the GSM architecture in the past decades using man-in-the-middle open-source tools and SDRs amidst the latest developments. It can be shown that an attacker can successfully carry out base station spoofing, IMSI catching, GSM packet sniffing, decoding, decryption and Denial of Service (DoS) attacks. Thus, this paper aims to comprehensively present practical demonstrations of the many vulnerabilities possible with available tools. We exploited IMSI catching with a rogue BTS deployed using OpenBTS and USRP B210, GSM sniffing and decoding using GR-GSM and RTL-SDR, and A5/1 decryption using clever thinking and rainbow tables. It was observed that the one-way authentication of the GSM protocol allows most mobile devices to easily authenticate to the rogue BTS with spoofed MCC/MNC and that the strongest signal mostly wins. Also, it was observed that the possibilities of attacks on the target user like a DoS, or unencrypted communication, can be successfully carried out because the rogue BTS is in total control. Though the vulnerabilities of GSM have been made known to the general public some network providers have not taken simple measures to mitigate them, thus this work can serve as a guideline for research purposes and an awareness to the general public},
+keywords = {IMSI catcher,OpenBTS,GR-GSM,Wireshark,A5/1 rainbow tables},	
+url = {https://jesaun.journals.ekb.eg/article_323883.html},
+eprint = {https://jesaun.journals.ekb.eg/article_323883_7eace44e00b402c4188783b967aaf19e.pdf}
+}
